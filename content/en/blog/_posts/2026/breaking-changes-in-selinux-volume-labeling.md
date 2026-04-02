@@ -133,9 +133,9 @@ It is available when the feature gate `SELinuxChangePolicy` is enabled. The feat
 
 The field has three values:
 
-* `nil` / not set (default): the SELinux label is applied recursively in v1.36, but it will be applied using the mount option when `SELinuxMount` is enabled and [all other conditions](#what-kubernetes-is-changing) are met. <!-- how to link the conditions in "What Kubernetes is improving" ??-->
+* `nil` / not set (default): the SELinux label is applied recursively in v1.36, but it will be applied using the mount option when `SELinuxMount` is enabled and [all other conditions](#what-kubernetes-is-improving) are met. 
 * `Recursive`: the SELinux label is applied recursively. This opts out from using the mount option.
-* `MountOption`: the SELinux label is applied using the mount option, if all other conditions are met. <!-- same link as above -->
+* `MountOption`: the SELinux label is applied using the mount option, if [all other conditions](#what-kubernetes-is-improving)  are met. 
   This option is available only when the `SELinuxMount` feature gate is enabled.
 
 ### SELinuxWarningController
