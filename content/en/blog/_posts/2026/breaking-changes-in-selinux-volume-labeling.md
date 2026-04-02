@@ -2,7 +2,7 @@
 layout: blog
 title: "SELinux Volume Label Changes goes GA (and likely implications in v1.37)"
 draft: true
-date: 2026-04-XXT10:30:00-08:00
+date: 2026-04-29T10:30:00-08:00
 slug: breaking-changes-in-selinux-volume-labeling
 author: >
   [Jan Šafránek](https://github.com/jsafrane) (Red Hat)
@@ -133,7 +133,7 @@ It is available when the feature gate `SELinuxChangePolicy` is enabled. The feat
 
 The field has three values:
 
-* `nil` / not set (default): the SELinux label is applied recursively in v1.36, but it will be applied using the mount option when `SELinuxMount` is enabled and all other conditions are met. <!-- how to link the conditions in "What Kubernetes is improving" ??-->
+* `nil` / not set (default): the SELinux label is applied recursively in v1.36, but it will be applied using the mount option when `SELinuxMount` is enabled and [all other conditions](#what-kubernetes-is-changing) are met. <!-- how to link the conditions in "What Kubernetes is improving" ??-->
 * `Recursive`: the SELinux label is applied recursively. This opts out from using the mount option.
 * `MountOption`: the SELinux label is applied using the mount option, if all other conditions are met. <!-- same link as above -->
   This option is available only when the `SELinuxMount` feature gate is enabled.
