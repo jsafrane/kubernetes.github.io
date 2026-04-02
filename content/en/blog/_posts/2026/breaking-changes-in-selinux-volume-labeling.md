@@ -46,7 +46,7 @@ escapes the container boundary cannot access data of any other container on the
 host. The container runtime still recursively relabels all Pod volumes with this
 random SELinux label.
 
-## What Kubernetes is improving{#what-kubernetes-is-improving}
+## What Kubernetes is improving
 
 Where the stack supports it, kubelet can mount the volume with `-o context=<label>` so the kernel
 applies the correct label for all inodes on that mount without a recursive inode traversal. That path is
@@ -133,8 +133,7 @@ It is available when the feature gate `SELinuxChangePolicy` is enabled. The feat
 
 The field has three values:
 
-* `nil` / not set (default): the SELinux label is applied recursively in v1.36, but it will be applied using the mount option when `SELinuxMount` is enabled [all other conditions](#what-kubernetes-is-improving) 
- are met. <!-- how to link the conditions in "What Kubernetes is improving" ??-->
+* `nil` / not set (default): the SELinux label is applied recursively in v1.36, but it will be applied using the mount option when `SELinuxMount` is enabled and all other conditions are met. <!-- how to link the conditions in "What Kubernetes is improving" ??-->
 * `Recursive`: the SELinux label is applied recursively. This opts out from using the mount option.
 * `MountOption`: the SELinux label is applied using the mount option, if all other conditions are met. <!-- same link as above -->
   This option is available only when the `SELinuxMount` feature gate is enabled.
@@ -187,10 +186,12 @@ if the SELinuxWarningController is enabled.
 ## Further reading
 
 - KEP: [Speed up SELinux volume relabeling using mounts](https://github.com/kubernetes/enhancements/tree/master/keps/sig-storage/1710-selinux-relabeling)
+- [SELinux Volume Relabeling Feature Gates](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#feature-gates)
 - [Story 3: cluster upgrade](https://github.com/kubernetes/enhancements/tree/master/keps/sig-storage/1710-selinux-relabeling#story-3-cluster-upgrade)
 - [Configure a security context for a Pod](/docs/tasks/configure-pod-container/security-context/) — Efficient SELinux volume relabeling and SELinuxWarningController
 
+## Acknowledgements
 
-
-# Open issues  with this blog
-* should there be a summary of the feature gates involved, something like https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#feature-gates ?
+If you run into issues, have feedback, or want to contribute, find us
+on the Kubernetes Slack in `#sig-node` and `sig-storage` or join a
+[SIG Windows meeting](https://github.com/kubernetes/community/tree/master/sig-windows) or [SIG Storage meeting](https://github.com/kubernetes/community/tree/master/sig-storage).
